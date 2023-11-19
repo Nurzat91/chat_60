@@ -13,7 +13,11 @@ const GetMessage = () => {
 
         if (response.ok) {
           const posts: SendProps[] = await response.json();
-          setListItem(posts);
+          const dateTime = posts[posts.length - 1].datetime;
+          setListItem(posts.reverse());
+          console.log('result', posts);
+
+
         }
       } catch (error) {
         console.error('Error:', error);
@@ -22,6 +26,7 @@ const GetMessage = () => {
 
     void fetchMessage();
   }, []);
+
 
   return (
     <div>

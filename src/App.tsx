@@ -4,10 +4,10 @@ import GetMessage from './components/GetMessage/GetMessage';
 function App() {
 
   return (
-    <>
+    <div className="container">
       <ChatForm/>
       <GetMessage/>
-    </>
+    </div>
   )
 }
 

@@ -26,7 +26,7 @@ const ChatForm = () => {
 
 
   return (
-    <div className="container my-3">
+    <div className="my-3">
       <h3>author: {authorName}</h3>
       <form className="d-flex my-3">
         <input
