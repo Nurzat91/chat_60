@@ -9,8 +9,8 @@ interface Props {
 const GetListForm: React.FC<Props> = ({ listItem }) => {
   return (
     <div>
-      {listItem.map((item) => (
-        <GetListItem key={item.id} list={item} />
+      {listItem.map((item, index: number) => (
+        <GetListItem key={index} list={item} />
       ))}
     </div>
   );

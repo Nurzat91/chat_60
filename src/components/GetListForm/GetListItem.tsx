@@ -7,7 +7,7 @@ interface Props {
 const GetListItem: React.FC<Props> = ({list}) => {
 
   return (
-    <div className="my-3 p-2 card" id={list.id}>
+    <div className="my-3 p-2 card">
       <div>
         <span><strong>Author:</strong> {list.author}</span>
         <span className="ms-3"><strong>Date:</strong> {list.datetime}</span>
