@@ -1,6 +1,5 @@
 import {ChangeEvent, useState} from 'react';
 
-
 const ChatForm = () => {
   const [postMessage, setPostMessage] = useState('');
   const [authorName] = useState('Sun');
@@ -11,11 +10,12 @@ const ChatForm = () => {
      data.set('message', postMessage);
      data.set('author', authorName);
 
-     const response = await fetch(url, {
+     await fetch(url, {
        method: 'post',
        body: data,
      });
-     console.log(response);
+
+     setPostMessage('');
    } catch (error) {
      console.error("Error:", error);
    }

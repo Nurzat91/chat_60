@@ -10,21 +10,27 @@ const GetMessage = () => {
     const fetchMessage = async () => {
       try {
         const response = await fetch(url);
-
-        if (response.ok) {
-          const posts: SendProps[] = await response.json();
-          const dateTime = posts[posts.length - 1].datetime;
-          setListItem(posts.reverse());
-          console.log('result', posts);
-
-
+        if(!response.ok){
+          throw new Error('ERROR' + response.status);
         }
+
+        const posts: SendProps[] = await response.json();
+        const dateTime = posts[posts.length - 1].datetime;
+        console.log('result', dateTime);
+        console.log('rest', posts);
+
+        const dataresponse = await fetch(`${url}?datetime=${dateTime}`);
+
+        const dataMessage: SendProps[] = await dataresponse.json();
+        setListItem(dataMessage.reverse());
+        console.log('111',dataMessage);
+
       } catch (error) {
         console.error('Error:', error);
       }
     };
 
-    void fetchMessage();
+    setInterval(fetchMessage, 4000);
   }, []);
 
 
